@@ -6,10 +6,27 @@
     <title>VIP ड्रामा पास - प्रीमियम शॉर्ट शोज़ अनलॉक करें</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- QR Code Generation Library for perfect QR rendering -->
+    <!-- QR Code Generation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
     <!-- Google Fonts for premium typography -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <script>
+        // Guaranteed early execution: Handle QR load errors before body rendering
+        window.handleImageLoadError = function(imgElement) {
+            console.log("Original QR file not found. Seamlessly switching to dynamic QR generator.");
+            if (imgElement) {
+                imgElement.style.display = 'none';
+                imgElement.classList.add("hidden");
+            }
+            const canvas = document.getElementById("qr-dynamic");
+            if (canvas) {
+                canvas.classList.remove("hidden");
+                canvas.style.display = "block";
+            }
+        };
+    </script>
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -20,9 +37,6 @@
         }
         .glow-red {
             text-shadow: 0 0 25px rgba(239, 68, 68, 0.8);
-        }
-        .glow-gold {
-            text-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
         }
         .glass-card {
             background: rgba(14, 14, 22, 0.75);
@@ -43,27 +57,27 @@
         }
     </style>
 </head>
-<body class="text-gray-100 min-h-screen selection:bg-red-600 selection:text-white">
+<body class="text-gray-100 min-h-screen selection:bg-red-600 selection:text-white font-sans">
 
     <!-- Custom Alert Modal (Replaces default browser alert) -->
-    <div id="custom-alert" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md">
+    <div id="custom-alert" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm">
         <div class="glass-card max-w-sm w-full p-6 rounded-3xl border-red-500/30 text-center shadow-2xl transform scale-95 transition-all duration-300">
             <div class="w-16 h-16 bg-red-500/10 border border-red-500/30 rounded-full flex items-center justify-center mx-auto mb-4 text-red-500">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
                 </svg>
             </div>
-            <h4 class="text-lg font-bold text-white mb-2">गलत जानकारी!</h4>
-            <p id="custom-alert-message" class="text-sm text-zinc-400 mb-6">कृपया भुगतान के बाद प्राप्त हुआ वैध 12-अंकों का ट्रांजैक्शन आईडी (Ref No. / UTR ID) दर्ज करें।</p>
+            <h4 class="text-lg font-bold text-white mb-2">सूचना</h4>
+            <p id="custom-alert-message" class="text-sm text-zinc-400 mb-6">कुछ गलत हुआ। कृपया पुनः प्रयास करें।</p>
             <button onclick="closeCustomAlert()" class="w-full py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-colors text-sm uppercase tracking-wider">
-                ठीक है (Ok)
+                ठीक है (Okay)
             </button>
         </div>
     </div>
 
     <!-- Premium Floating Banner -->
     <div class="bg-gradient-to-r from-red-600 via-pink-600 to-amber-600 text-white py-2 px-4 text-center text-xs md:text-sm font-semibold tracking-wider sticky top-0 z-50 shadow-lg">
-        🔥 सीमित समय का विशेष ऑफर: मात्र ₹1 प्रत्येक में भारत के ३ सबसे गुप्त और ट्रेंडिंग प्रीमियम ड्रामा ऐप्स पाएं!
+        🔥 विशेष अवसर: ₹499 वन-टाइम फीस के बाद Kuku TV, Story TV और Quick TV पाएं मात्र ₹1/प्रत्येक में!
     </div>
 
     <!-- Header Section -->
@@ -96,14 +110,14 @@
         </h1>
 
         <p class="text-gray-300 text-base md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed">
-            बोरिंग टीवी शोज़ और डेली सोप्स को छोड़ें! बेहद रोमांचक, रोमांटिक, थ्रिलर और सांसें रोक देने वाले 2-मिनट के कस्टमाइज्ड शोज़ में डूब जाएं। <span class="text-white font-semibold underline decoration-red-500 decoration-2">३ सीक्रेट प्रीमियम ड्रामा ऐप्स</span> के लिए तुरंत सेटअप और डायरेक्ट एक्सेस पाएं।
+            बोरिंग टीवी शोज़ और डेली सोप्स को छोड़ें! बेहद रोमांचक, रोमांटिक, थ्रिलर और सांसें रोक देने वाले शोज़ में डूब जाएं। <span class="text-white font-semibold underline decoration-red-500 decoration-2">₹499 की वन-टाइम Curation फीस</span> के बाद तीनों बेहतरीन ऐप्स को अपने फ़ोन में तुरंत डाउनलोड करें और अंदर मात्र <span class="text-amber-400 font-bold">₹1 प्रत्येक</span> में अपना VIP सब्सक्रिप्शन शुरू करें!
         </p>
 
         <!-- Highlights Row -->
         <div class="grid grid-cols-3 gap-4 max-w-3xl mx-auto mb-14">
             <div class="glass-card rounded-2xl p-5 text-center neon-border">
                 <p class="text-3xl md:text-4xl font-black text-amber-400">₹1</p>
-                <p class="text-[9px] md:text-xs text-gray-400 mt-1 uppercase tracking-wider font-semibold">शुरुआती सब्सक्रिप्शन</p>
+                <p class="text-[9px] md:text-xs text-gray-400 mt-1 uppercase tracking-wider font-semibold">ऐप्स के अंदर का charge</p>
             </div>
             <div class="glass-card rounded-2xl p-5 text-center neon-border">
                 <p class="text-3xl md:text-4xl font-black text-red-500">300+</p>
@@ -117,7 +131,7 @@
 
         <div class="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <a href="#payment-section" class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-gradient-to-r from-red-600 via-pink-600 to-amber-500 hover:opacity-95 font-extrabold text-lg text-white shadow-xl shadow-red-600/30 transform hover:-translate-y-1 transition-all duration-300 tracking-wide">
-                मात्र ₹499 में 3 गुप्त ऐप्स अभी अनलॉक करें
+                भुगतान करें और डाउनलोड लिंक खोलें
             </a>
             <a href="#trending" class="text-gray-400 hover:text-white font-medium text-sm transition-colors py-2 flex items-center gap-1">
                 नीचे वायरल क्लिप्स देखें
@@ -126,70 +140,55 @@
         </div>
     </section>
 
-    <!-- Dynamic Promo Banner -->
+    <!-- Promo Banner / Subscriptions Info -->
     <section class="bg-zinc-950/90 py-12 border-y border-zinc-900">
         <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-8">
             <div class="text-center md:text-left">
                 <h3 class="text-2xl font-bold text-amber-400 flex items-center gap-2 justify-center md:justify-start">
                     <span class="w-2.5 h-2.5 rounded-full bg-amber-500 animate-pulse"></span>
-                    ₹1 का सब्सक्रिप्शन कैसे काम करता है?
+                    वन-टाइम पास और ₹1 का नियम क्या है?
                 </h3>
                 <p class="text-sm text-zinc-400 mt-2.5 max-w-2xl leading-relaxed">
-                    एक बार जब आप हमारे प्राइवेट VIP हब में आ जाते हैं, तो हम आपको इन <strong>३ सबसे बड़े ड्रामा ऐप्स</strong> के डायरेक्ट सीक्रेट प्रोमो लिंक प्रदान करते हैं। ये लिंक केवल ₹1 में आपका शुरूआती सब्सक्रिप्शन एक्टिवेट करते हैं! एक ही जगह पर सभी ऐप्स के सुरक्षित लिंक प्राप्त करने के लिए आज ही छोटा सर्विस चार्ज चुकाएं।
+                    आज केवल <strong>₹499 का वन-टाइम क्युरेशन सर्विस चार्ज</strong> चुकाकर आप हमारे सुरक्षित डाउनलोड हब तक पहुंच जाएंगे। वहाँ से आप <strong>Kuku TV, Story TV और Quick TV</strong> को सीधे इंस्टॉल कर सकते हैं। इसके बाद, प्रत्येक ऐप के अंदर दिए गए हमारे विशेष लिंक से आप केवल <strong>₹1 प्रति ऐप</strong> में अपना प्रीमियम वीआईपी पैकेज एक्टिवेट कर सकते हैं!
                 </p>
             </div>
             <div class="flex items-center gap-4 bg-white/5 px-6 py-4 rounded-2xl border border-white/10 w-full md:w-auto justify-center">
                 <svg class="w-10 h-10 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
                 <div class="text-left">
-                    <p class="text-xs text-zinc-400 uppercase tracking-widest font-semibold">एक बार का शुल्क</p>
-                    <p class="font-bold text-xl text-white">₹499 सर्विस चार्ज</p>
+                    <p class="text-xs text-zinc-400 uppercase tracking-widest font-semibold font-mono">एक बार का पास शुल्क</p>
+                    <p class="font-bold text-xl text-white">₹499 वन-टाइम</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Trending Shows Grid -->
+    <!-- Trending Shows Grid (With Your Specific Uploaded Image Assets) -->
     <section id="trending" class="py-24 px-4 max-w-6xl mx-auto">
         <div class="text-center mb-20">
-            <span class="text-xs uppercase tracking-widest text-red-500 font-bold bg-red-500/10 px-3 py-1.5 rounded-full border border-red-500/20">ट्रेंडिंग हॉट रिलीज़</span>
+            <span class="text-xs uppercase tracking-widest text-red-500 font-bold bg-red-500/10 px-3 py-1.5 rounded-full border border-red-500/20">ट्रेंडिंग शोज़</span>
             <h2 class="serif-title text-3xl md:text-5xl font-bold mt-4 leading-tight">आपके लिए अंदर क्या इंतज़ार कर रहा है...</h2>
-            <p class="text-zinc-400 text-sm md:text-base mt-4 max-w-xl mx-auto">ये सीरीज सोशल मीडिया, इंस्टाग्राम रील्स और फेसबुक पर खूब धमाल मचा रही हैं। इन सभी का बिना किसी विज्ञापन के अभी भरपूर आनंद लें।</p>
+            <p class="text-zinc-400 text-sm md:text-base mt-4 max-w-xl mx-auto">ये शोज़ सोशल मीडिया और रील्स पर सबसे ज्यादा देखे जा रहे हैं। पेमेंट के तुरंत बाद सभी ऐप्स आपके फ़ोन में डाउनलोड के लिए तैयार होंगे।</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Show 1 -->
             <div class="group rounded-3xl overflow-hidden glass-card hover:border-red-500/40 transition-all duration-500 transform hover:-translate-y-2 shadow-2xl">
                 <div class="relative h-96 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <!-- EXACT UPLOADED IMAGE 1: Whispering shush scene representing secrecy and corporate intrigue -->
-                    <img src="image_cebd1a.png" alt="Shh Intimacy Scene" class="absolute inset-0 w-full h-full object-cover object-left opacity-85 group-hover:scale-110 transition-transform duration-700" />
+                    <!-- EXACT UPLOADED IMAGE 1 -->
+                    <img src="image_cebd1a.png" alt="द सीईओ'ज़ डबल लाइफ" class="absolute inset-0 w-full h-full object-cover object-left opacity-85 group-hover:scale-110 transition-transform duration-700" />
                     
                     <!-- Pulsating Play Button Overlay -->
                     <div class="absolute inset-0 flex items-center justify-center bg-black/25 group-hover:bg-black/45 transition-colors z-10">
                         <div class="w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center text-white play-pulse shadow-lg shadow-red-600/50 transform group-hover:scale-110 transition-transform">
-                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </div>
 
                     <!-- Dark Vignette Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent z-20"></div>
-                    <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">Secret ऐप १ एक्सक्लूसिव</span>
-                    <span class="absolute top-4 right-4 bg-zinc-950/80 text-amber-400 text-[10px] font-bold px-2.5 py-1.5 rounded-md border border-amber-500/20 flex items-center gap-1 z-20">
-                        ★ 9.8 रेटिंग
-                    </span>
+                    <span class="absolute top-4 left-4 bg-red-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">रोमांस और रहस्य</span>
                     <div class="absolute bottom-4 left-4 right-4 z-20">
-                        <span class="text-xs text-red-400 font-bold uppercase tracking-wide">रोमांस और रहस्य</span>
                         <h4 class="text-xl font-bold text-white mt-1">द सीईओ'ज़ डबल लाइफ</h4>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        दिन में, वह साम्राज्य चलाने वाला एक क्रूर अरबपति है। रात में, वह उसका रहस्यमयी रक्षक बन जाता है। क्या वे इस रोमांचक और गुप्त रिश्ते को दुनिया से छिपा पाएंगे?
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-900">
-                        <span class="text-xs text-zinc-500 font-medium">65 एपिसोड (पूरे हो चुके हैं)</span>
-                        <span class="text-xs text-amber-400 font-semibold bg-amber-400/10 px-2.5 py-1 rounded-md">₹1 में देखें</span>
                     </div>
                 </div>
             </div>
@@ -197,35 +196,20 @@
             <!-- Show 2 -->
             <div class="group rounded-3xl overflow-hidden glass-card hover:border-red-500/40 transition-all duration-500 transform hover:-translate-y-2 shadow-2xl">
                 <div class="relative h-96 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <!-- EXACT UPLOADED IMAGE 2: Intimate embrace Love Me Again bridal and revenge theme -->
-                    <img src="image_cec081.png" alt="Love Me Again Altar Revenge" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-110 transition-transform duration-700" />
+                    <!-- EXACT UPLOADED IMAGE 2 -->
+                    <img src="image_cec081.png" alt="शादी का बदला" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:scale-110 transition-transform duration-700" />
                     
                     <!-- Pulsating Play Button Overlay -->
                     <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors z-10">
                         <div class="w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center text-white play-pulse shadow-lg shadow-red-600/50 transform group-hover:scale-110 transition-transform">
-                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </div>
 
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-20"></div>
-                    <span class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">Secret ऐप २ टॉप पिक</span>
-                    <span class="absolute top-4 right-4 bg-zinc-950/80 text-amber-400 text-[10px] font-bold px-2.5 py-1.5 rounded-md border border-amber-500/20 flex items-center gap-1 z-20">
-                        ★ 9.6 रेटिंग
-                    </span>
+                    <span class="absolute top-4 left-4 bg-purple-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">अरबपति रोमांस</span>
                     <div class="absolute bottom-4 left-4 right-4 z-20">
-                        <span class="text-xs text-purple-400 font-bold uppercase tracking-wide">अरबपति रोमांस</span>
                         <h4 class="text-xl font-bold text-white mt-1">शादी का बदला (Revenge at Altar)</h4>
-                    </div>
-                </div>
-                <div class="p-6">
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        अपनी सौतेली बहन और पूर्व मंगेतर से धोखा खाने के बाद, वह बदला लेने के लिए एक शक्तिशाली अजनबी से शादी का नाटक करती है। लेकिन जल्द ही उनके बीच की सीमाएं धुंधली होने लगती हैं।
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-900">
-                        <span class="text-xs text-zinc-500 font-medium">80 एपिसोड (सभी अनलॉक)</span>
-                        <span class="text-xs text-amber-400 font-semibold bg-amber-400/10 px-2.5 py-1 rounded-md">₹1 में देखें</span>
                     </div>
                 </div>
             </div>
@@ -233,278 +217,185 @@
             <!-- Show 3 -->
             <div class="group rounded-3xl overflow-hidden glass-card hover:border-red-500/40 transition-all duration-500 transform hover:-translate-y-2 shadow-2xl">
                 <div class="relative h-96 bg-zinc-950 flex items-center justify-center overflow-hidden">
-                    <!-- SPLIT AND ZOOMED IMAGE 3: Focuses on the right-side handsome muscular leading man from image_cebd1a.png for extreme attraction -->
-                    <img src="image_cebd1a.png" alt="Dangerous Desires Lead Actor" class="absolute inset-0 w-full h-full object-cover object-right opacity-85 group-hover:scale-110 transition-transform duration-700" />
+                    <!-- SPLIT AND ZOOMED IMAGE FROM IMAGE 1 (Displays muscular actor on the right side) -->
+                    <img src="image_cebd1a.png" alt="खतरनाक इरादे" class="absolute inset-0 w-full h-full object-cover object-right opacity-85 group-hover:scale-110 transition-transform duration-700" />
                     
                     <!-- Pulsating Play Button Overlay -->
                     <div class="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/40 transition-colors z-10">
                         <div class="w-16 h-16 rounded-full bg-red-600/90 flex items-center justify-center text-white play-pulse shadow-lg shadow-red-600/50 transform group-hover:scale-110 transition-transform">
-                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24">
-                                <path d="M8 5v14l11-7z"/>
-                            </svg>
+                            <svg class="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         </div>
                     </div>
 
                     <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent z-20"></div>
-                    <span class="absolute top-4 left-4 bg-amber-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">Secret ऐप ३ ओरिजिनल</span>
-                    <span class="absolute top-4 right-4 bg-zinc-950/80 text-amber-400 text-[10px] font-bold px-2.5 py-1.5 rounded-md border border-amber-500/20 flex items-center gap-1 z-20">
-                        ★ 9.9 रेटिंग
-                    </span>
+                    <span class="absolute top-4 left-4 bg-amber-600 text-white text-[10px] uppercase font-extrabold tracking-widest px-3 py-1.5 rounded-full z-20">बोल्ड सस्पेंस थ्रिलर</span>
                     <div class="absolute bottom-4 left-4 right-4 z-20">
-                        <span class="text-xs text-amber-400 font-bold uppercase tracking-wide">बोल्ड सस्पेंस थ्रिलर</span>
                         <h4 class="text-xl font-bold text-white mt-1">खतरनाक इरादे (Dangerous Desires)</h4>
                     </div>
                 </div>
-                <div class="p-6">
-                    <p class="text-zinc-400 text-sm leading-relaxed mb-4">
-                        एक अमीर घराने की खूबसूरत लड़की अपनी याददाश्त खो बैठती है और एक साधारण बॉडीगार्ड के घर जागती है। जब उसकी असली पहचान सामने आती, तो क्या वह प्यार चुनेगी या बदला?
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-900">
-                        <span class="text-xs text-zinc-500 font-medium">120 एपिसोड (साप्ताहिक रिलीज)</span>
-                        <span class="text-xs text-amber-400 font-semibold bg-amber-400/10 px-2.5 py-1 rounded-md">₹1 में देखें</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Pay the ₹499 Curation Fee? -->
-    <section class="bg-zinc-950/60 py-20 px-4">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="serif-title text-3xl md:text-5xl font-bold text-center mb-16">आपको VIP ड्रामा पास की आवश्यकता क्यों है?</h2>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/20 transition-all duration-300">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white">डायरेक्ट वेरीफाइड प्रोमो लिंक्स</h4>
-                        <p class="text-zinc-400 text-sm mt-1">
-                            फर्जी वेबसाइटों और खतरनाक रीडायरेक्ट लिंक्स पर भटकने से बचें। हम आपको असली, डायरेक्ट प्रोमो लिंक्स प्रदान करते हैं जो तुरंत सभी गुप्त ड्रामा ऐप्स पर ₹1 वाला विशेष ऑफर एक्टिवेट कर देते हैं।
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/20 transition-all duration-300">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white">सभी 3 प्रीमियम ऐप्स एक ही जगह</h4>
-                        <p class="text-zinc-400 text-sm mt-1">
-                            सभी रहस्मयी ड्रामा प्लेटफॉर्म्स के सुरक्षित इंस्टॉलेशन एपीके और डायरेक्ट डाउनलोड पोर्टल तुरंत प्राप्त करें। प्ले स्टोर और एप्पल ऐप स्टोर द्वारा पूरी तरह सत्यापित।
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/20 transition-all duration-300">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white">हर महीने ₹2500 से अधिक बचाएं</h4>
-                        <p class="text-zinc-400 text-sm mt-1">
-                            हर महीने महंगे स्टैंडर्ड सब्सक्रिप्शन चार्ज देने के बजाय, हमारे ₹1 वाले शॉर्टकट सीक्रेट का उपयोग करें। यह छोटा सा एक बार का सर्विस चार्ज पहले ही दिन पूरा वसूल हो जाता है।
-                        </p>
-                    </div>
-                </div>
-
-                <div class="flex gap-5 p-6 rounded-3xl bg-white/5 border border-white/10 hover:border-red-500/20 transition-all duration-300">
-                    <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                    </div>
-                    <div>
-                        <h4 class="text-lg font-bold text-white">100% सुरक्षित और गारंटीड</h4>
-                        <p class="text-zinc-400 text-sm mt-1">
-                            सुरक्षित डिजिटल डाउनलोड के साथ डायरेक्ट प्रीमियम वेरिफिकेशन। सुरक्षित UPI QR के माध्यम से भुगतान करने के लिए आसान चरणों का पालन करें और तुरंत सुरक्षित एक्सेस प्राप्त करें।
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Payment & Activation Section (Interactive) -->
+    <!-- Payment Section (With Premium Screenshot Upload Midway Flow) -->
     <section id="payment-section" class="py-24 px-4 max-w-4xl mx-auto scroll-mt-10">
-        <div class="text-center mb-16">
-            <span class="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">सुरक्षित एक्सेस पोर्टल</span>
-            <h2 class="serif-title text-3xl md:text-5xl font-bold mt-4 leading-tight">अपना VIP पास अभी प्राप्त करें</h2>
-            <p class="text-zinc-400 text-sm mt-3 max-w-md mx-auto">₹499 का एक बार का सर्विस चार्ज चुकाएं और तुरंत सभी ३ गुप्त ऐप्स के डायरेक्ट डाउनलोड लिंक पाएं।</p>
+        <div class="text-center mb-12">
+            <span class="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">आसान भुगतान प्रक्रिया</span>
+            <h2 class="serif-title text-3xl md:text-5xl font-bold mt-4 leading-tight">अपना VIP पास अनलॉक करें</h2>
+            <p class="text-zinc-400 text-sm mt-3 max-w-md mx-auto">नीचे दिए गए QR कोड को स्कैन करके ₹499 का भुगतान करें और तुरंत 1-क्लिक में ऐप्स डाउनलोड करें।</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-            
-            <!-- Left Panel: QR Code and payment instructions -->
-            <div class="md:col-span-7 glass-card rounded-3xl p-6 md:p-8 border border-amber-500/20 shadow-2xl relative overflow-hidden">
-                <div class="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl"></div>
-                
-                <h3 class="text-xl font-bold text-white flex items-center gap-2 mb-6">
-                    <span class="w-3 h-3 rounded-full bg-amber-500"></span> चरण 1: भुगतान करने के लिए UPI QR कोड स्कैन करें
-                </h3>
-
-                <!-- QR Display Container - Only displays Fast Digital QR on solid high contrast white background -->
-                <div class="flex flex-col items-center justify-center p-6 bg-white rounded-3xl mb-6 shadow-2xl max-w-sm mx-auto relative min-h-[300px] border-4 border-amber-500/20">
-                    <h4 class="text-xs font-bold text-red-600 mb-2 tracking-widest uppercase flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 bg-red-600 rounded-full animate-ping"></span> 
-                        FAST DIGITAL QR PAYMENT
-                    </h4>
-                    <!-- Dynamic Canvas QR generated via QRIous directly -->
-                    <canvas id="qr-dynamic" class="w-64 h-64 block"></canvas>
-                    
-                    <p class="text-[11px] text-zinc-500 font-bold tracking-wide mt-3 text-center uppercase">UPI हैंडल: <strong class="text-zinc-800">pyrmdc@ptaxis</strong></p>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+            <!-- Left Side: QR Code Area -->
+            <div class="md:col-span-6 glass-card rounded-3xl p-6 md:p-8 border border-amber-500/20 flex flex-col justify-between">
+                <div>
+                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
+                        १. स्कैन करके ₹499 ट्रांसफर करें
+                    </h3>
+                    <div class="flex flex-col items-center justify-center p-6 bg-white rounded-2xl mb-6 shadow-2xl max-w-xs mx-auto border-4 border-amber-500/20">
+                        <!-- Standard Uploaded QR Image -->
+                        <img id="qr-original" src="1000464973.jpg" alt="UPI QR Code Pass" class="w-56 h-56 object-contain block" onerror="window.handleImageLoadError(this)" />
+                        <!-- Fallback Dynamic Canvas QR -->
+                        <canvas id="qr-dynamic" class="hidden w-56 h-56"></canvas>
+                        <p class="text-[10px] text-zinc-500 font-bold tracking-wide mt-3 uppercase text-center">UPI ID: <span class="text-zinc-800 font-mono">pyrmdc@ptaxis</span></p>
+                    </div>
                 </div>
-
+                
                 <!-- Easy Copy Segment for UPI ID -->
-                <div class="flex items-center justify-between bg-zinc-900/90 border border-zinc-800 px-4 py-3 rounded-xl mb-6">
+                <div class="flex items-center justify-between bg-zinc-900/90 border border-zinc-800 px-4 py-3 rounded-xl">
                     <div class="overflow-hidden">
                         <p class="text-[10px] text-zinc-500 uppercase tracking-widest font-semibold">कॉपी या मैन्युअल भुगतान के लिए UPI ID</p>
                         <p id="upi-id-text" class="text-sm font-semibold text-amber-400 truncate font-mono">pyrmdc@ptaxis</p>
                     </div>
                     <button onclick="copyUpiId()" class="bg-amber-500/10 border border-amber-500/30 text-amber-400 hover:bg-amber-500 hover:text-black font-bold text-xs px-3.5 py-2 rounded-lg transition-all flex items-center gap-1 shrink-0">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
-                        UPI ID कॉपी करें
+                        यूपीआई कॉपी करें
                     </button>
                 </div>
-
                 <!-- Custom copy popup message -->
                 <div id="copy-toast" class="hidden absolute top-4 left-1/2 -translate-x-1/2 bg-emerald-600 text-white text-xs px-4 py-2 rounded-full font-medium shadow-md z-40">
                     UPI ID सफलतापूर्वक कॉपी हो गई!
                 </div>
-
-                <div class="space-y-3.5 text-zinc-400 text-xs leading-relaxed">
-                    <p class="flex gap-2 items-start"><span class="text-amber-400 font-bold">1.</span> GPay, PhonePe, Paytm या किसी भी banking ऐप का उपयोग करके ऊपर दिए गए QR कोड को स्कैन करें।</p>
-                    <p class="flex gap-2 items-start"><span class="text-amber-400 font-bold">2.</span> सर्विस चार्ज के रूप में ठीक <span class="text-white font-bold">₹499</span> का सुरक्षित ट्रांसफर पूरा करें।</p>
-                    <p class="flex gap-2 items-start"><span class="text-amber-400 font-bold">3.</span> भुगतान के बाद अपना 12-अंकों का ट्रांजैक्शन Ref No. / UTR ID कॉपी करें।</p>
-                </div>
             </div>
 
-            <!-- Right Panel: Ref verification and app unlocker -->
-            <div class="md:col-span-5 flex flex-col gap-6">
-                
-                <!-- Verification Form -->
-                <div class="glass-card rounded-3xl p-6 border border-zinc-800 shadow-xl relative overflow-hidden">
+            <!-- Right Side: Psychological Deterrent Screenshot Upload -->
+            <div class="md:col-span-6 glass-card rounded-3xl p-6 md:p-8 border border-zinc-800 flex flex-col justify-between">
+                <div>
                     <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-3 h-3 rounded-full bg-red-500"></span> चरण 2: पुष्टि करें और अनलॉक करें
+                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
+                        २. भुगतान का प्रमाण अपलोड करें
                     </h3>
-                    
-                    <p class="text-xs text-zinc-400 mb-6">वीआईपी ऐप डाउनलोड लिंक्स को तुरंत अनलॉक करने के लिए नीचे अपना 12-अंकों का ट्रांजैक्शन आईडी या यूटीआर (UTR) नंबर दर्ज करें।</p>
-                    
-                    <div class="space-y-4">
-                        <div>
-                            <label class="block text-xs text-zinc-400 uppercase tracking-widest mb-2 font-medium">12-अंकों की Ref / UTR ID</label>
-                            <input id="ref-number" type="text" placeholder="जैसे: 302918273849" maxlength="12" class="w-full bg-zinc-900 border border-zinc-800 focus:border-red-500 rounded-xl px-4 py-3.5 text-white placeholder-zinc-600 focus:outline-none transition-colors" />
-                        </div>
-                        
-                        <button onclick="verifyPayment()" class="w-full py-4 rounded-xl bg-gradient-to-r from-red-600 to-red-700 hover:opacity-95 font-bold text-sm text-white tracking-wider uppercase shadow-lg shadow-red-600/10 transition-all">
-                            वेरीफाई करें और डाउनलोड लिंक खोलें
+                    <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
+                        सफलतापूर्वक ₹499 ट्रांसफर करने के बाद, अपने पेमेंट रसीद (Payment Receipt) का स्क्रीनशॉट यहाँ अपलोड करें ताकि हमारा सर्वर आपकी डाउनलोड फाइलों को सक्रिय कर सके।
+                    </p>
+
+                    <!-- Screenshot File Input -->
+                    <div class="mb-6">
+                        <input type="file" id="screenshot-file" accept="image/*" class="hidden" onchange="displayFileName(this)" />
+                        <button onclick="document.getElementById('screenshot-file').click()" class="w-full py-4 px-4 bg-zinc-900 hover:bg-zinc-800 border border-dashed border-zinc-700 hover:border-amber-500/50 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-all cursor-pointer">
+                            <svg class="w-8 h-8 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <span id="upload-label-text" class="text-sm font-semibold text-gray-300">पेमेंट रसीद (Screenshot) चुनें</span>
+                            <span id="selected-file-name" class="text-xs text-emerald-400 font-mono hidden truncate max-w-xs">✓ filename.jpg selected</span>
                         </button>
                     </div>
 
-                    <!-- Loader (Hidden initially) -->
-                    <div id="verification-loader" class="hidden mt-6 text-center">
-                        <div class="inline-block w-6 h-6 border-2 border-t-amber-500 border-zinc-800 rounded-full animate-spin"></div>
-                        <p class="text-xs text-zinc-400 mt-2">UPI गेटवे डेटाबेस से मिलान किया जा रहा है...</p>
-                    </div>
-
-                    <!-- Verified message (Hidden initially) -->
-                    <div id="verification-success" class="hidden mt-6 p-4 bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 rounded-xl flex items-center gap-3">
-                        <svg class="w-6 h-6 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0"></path></svg>
-                        <div>
-                            <p class="font-bold text-sm text-white">भुगतान सत्यापित हो गया!</p>
-                            <p class="text-xs text-zinc-400">सभी VIP ऐप डाउनलोड लिंक नीचे अनलॉक कर दिए गए हैं।</p>
+                    <!-- AI Verification Progress Bar -->
+                    <div id="scanning-loader" class="hidden p-4 bg-zinc-900 border border-zinc-800 rounded-2xl mb-6">
+                        <div class="flex items-center justify-between text-xs text-amber-400 font-semibold mb-2">
+                            <span class="flex items-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
+                                स्क्रीनशॉट की जांच की जा रही है...
+                            </span>
+                            <span id="scan-percentage">0%</span>
+                        </div>
+                        <div class="w-full bg-zinc-950 rounded-full h-2 overflow-hidden">
+                            <div id="scan-bar" class="bg-gradient-to-r from-red-600 via-pink-600 to-amber-500 h-2 w-0 transition-all duration-300"></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Quick Help / Support Information -->
-                <div class="glass-card rounded-2xl p-5 border border-zinc-900 text-xs text-zinc-400">
-                    <p class="font-bold text-white mb-2 uppercase tracking-wider text-[10px]">⚠️ सहायता चाहिए / समस्या आ रही है?</p>
-                    <p class="leading-relaxed">भुगतान 10-15 सेकंड के भीतर हमारे लाइव बहीखाते से स्वचालित रूप से मेल खा जाते हैं। यदि आपको कोई देरी होती है या गलत UTR ID दर्ज की है, तो कृपया पेज को रीफ्रेश करें या तुरंत मैन्युअल लिंक प्राप्त करने के लिए हमारी सहायता टीम को सीधे भुगतान प्रमाण ईमेल करें।</p>
-                </div>
-
+                <!-- Trigger Verification Process Button -->
+                <button onclick="startScreenshotVerification()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-red-600 via-pink-600 to-amber-500 hover:opacity-95 font-black text-lg text-white shadow-xl shadow-red-600/30 transition-all tracking-wider uppercase">
+                    मैंने भुगतान कर दिया है - ऐप्स अनलॉक करें
+                </button>
             </div>
         </div>
     </section>
 
-    <!-- Dynamic Unlock & App Download Hub -->
+    <!-- Dynamic Download Hub (Hidden initially, Unlocks on Click) -->
     <section id="download-hub" class="py-20 px-4 bg-zinc-950 border-t border-zinc-900 relative">
         <div class="max-w-5xl mx-auto">
             
             <div class="text-center mb-12">
-                <h3 class="serif-title text-2xl md:text-3xl font-bold">आपका डायरेक्ट ऐप इंस्टॉलर हब</h3>
-                <p class="text-zinc-400 text-sm mt-1">संबंधित ऐप डैशबोर्ड के अंदर अपने ₹1 वाले प्रमोशनल सब्सक्रिप्शन का दावा करने के लिए इन पैकेजों को अनलॉक करें।</p>
+                <h3 class="serif-title text-2xl md:text-3xl font-bold">आपका वीआईपी डाउनलोड पैनल</h3>
+                <p class="text-zinc-400 text-sm mt-1">नीचे दिए गए लिंक्स से ऐप्स को तुरंत इंस्टॉल करें और अंदर ₹1 प्रोमो का दावा करें।</p>
             </div>
 
-            <!-- Lock Overlay Screen (Removes when verification is complete) -->
+            <!-- Lock Overlay Screen (Removes when fast verification is complete) -->
             <div id="lock-overlay" class="relative">
                 <div id="overlay-shield" class="absolute inset-0 bg-zinc-950/95 backdrop-blur-md z-30 flex flex-col items-center justify-center text-center p-6 rounded-3xl border border-zinc-900">
                     <div class="w-16 h-16 rounded-full bg-red-500/10 border border-red-500/30 flex items-center justify-center text-red-500 mb-4 animate-bounce">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-2">लिंक अभी लॉक हैं</h4>
-                    <p class="text-zinc-400 text-xs md:text-sm max-w-sm mb-6">गूगल प्ले स्टोर और एप्पल ऐप स्टोर के वेरीफाइड डाउनलोड लिंक तुरंत खोलने के लिए ऊपर अपने ₹499 के वीआईपी पास ट्रांजैक्शन को वेरीफाई करें।</p>
-                    <a href="#payment-section" class="bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs tracking-wider uppercase px-5 py-3.5 rounded-xl transition-all">
-                        भुगतान और स्कैन करें
+                    <h4 class="text-xl font-bold text-white mb-2">लिंक्स अभी लॉक हैं</h4>
+                    <p class="text-zinc-400 text-xs md:text-sm max-w-sm mb-6">गूगल प्ले स्टोर और एप्पल ऐप स्टोर के वेरीफाइड डाउनलोड लिंक्स को तुरंत अनलॉक करने के लिए ऊपर पेमेंट स्क्रीनशॉट अपलोड करें।</p>
+                    <a href="#payment-section" class="bg-amber-500 hover:bg-amber-600 text-black font-extrabold text-xs tracking-wider uppercase px-5 py-3 rounded-xl transition-all">
+                        ऊपर पेमेंट स्क्रीनशॉट अपलोड करें
                     </a>
                 </div>
 
-                <!-- Unlocked Content Grid layout (Shown fully once unlocked) -->
+                <!-- Unlocked Content Grid layout -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 opacity-40 select-none pointer-events-none" id="unlocked-apps-list">
                     
-                    <!-- App 1 Card -->
-                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between">
+                    <!-- Kuku TV -->
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between shadow-lg">
                         <div>
-                            <span class="inline-block px-2.5 py-1 rounded bg-red-600/10 text-red-400 text-[10px] font-bold uppercase tracking-wider mb-4">रोमांस और सस्पेंस</span>
+                            <span class="inline-block px-2.5 py-1 rounded bg-red-600/10 text-red-400 text-[10px] font-bold uppercase tracking-wider mb-4">Kuku TV</span>
                             <h4 class="text-xl font-extrabold text-white">VIP ऐप १</h4>
-                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर चालू है: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
+                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
                         </div>
                         <div class="mt-8 space-y-2">
-                            <a href="https://play.google.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4 text-emerald-400" viewBox="0 0 24 24" fill="currentColor"><path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.5,12L8,6.5V17.5L17.5,12Z" /></svg>
-                                एंड्रॉइड इंस्टॉलर
+                            <a href="https://play.google.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                एंड्रॉइड डाउनलोड (Google Play)
                             </a>
-                            <a href="https://apps.apple.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.1,16.67C20.08,16.74 19.67,18.11 18.71,19.5M15.97,4.17C16.63,3.37 17.07,2.28 16.95,1C16,1.04 14.9,1.6 14.24,2.38C13.68,3.04 13.19,4.14 13.34,5.39C14.39,5.47 15.4,4.88 15.97,4.17Z" /></svg>
-                                आईफोन / iOS इंस्टॉलर
+                            <a href="https://apps.apple.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                आईफोन डाउनलोड (iOS App Store)
                             </a>
                         </div>
                     </div>
 
-                    <!-- App 2 Card -->
-                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between">
+                    <!-- Story TV -->
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between shadow-lg">
                         <div>
-                            <span class="inline-block px-2.5 py-1 rounded bg-purple-600/10 text-purple-400 text-[10px] font-bold uppercase tracking-wider mb-4">रोमांचक ड्रामा</span>
+                            <span class="inline-block px-2.5 py-1 rounded bg-purple-600/10 text-purple-400 text-[10px] font-bold uppercase tracking-wider mb-4">Story TV</span>
                             <h4 class="text-xl font-extrabold text-white">VIP ऐप २</h4>
-                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर चालू है: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
+                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
                         </div>
                         <div class="mt-8 space-y-2">
-                            <a href="https://play.google.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.5,12L8,6.5V17.5L17.5,12Z" /></svg>
-                                एंड्रॉइड इंस्टॉलर
+                            <a href="https://play.google.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                एंड्रॉइड डाउनलोड (Google Play)
                             </a>
-                            <a href="https://apps.apple.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.1,16.67C20.08,16.74 19.67,18.11 18.71,19.5M15.97,4.17C16.63,3.37 17.07,2.28 16.95,1C16,1.04 14.9,1.6 14.24,2.38C13.68,3.04 13.19,4.14 13.34,5.39C14.39,5.47 15.4,4.88 15.97,4.17Z" /></svg>
-                                आईफोन / iOS इंस्टॉलर
+                            <a href="https://apps.apple.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                आईफोन डाउनलोड (iOS App Store)
                             </a>
                         </div>
                     </div>
 
-                    <!-- App 3 Card -->
-                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between">
+                    <!-- Quick TV -->
+                    <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800 text-center flex flex-col justify-between shadow-lg">
                         <div>
-                            <span class="inline-block px-2.5 py-1 rounded bg-amber-600/10 text-amber-400 text-[10px] font-bold uppercase tracking-wider mb-4">फ़ास्ट-पेस्ड ओरिजिनल्स</span>
+                            <span class="inline-block px-2.5 py-1 rounded bg-amber-600/10 text-amber-400 text-[10px] font-bold uppercase tracking-wider mb-4">Quick TV</span>
                             <h4 class="text-xl font-extrabold text-white">VIP ऐप ३</h4>
-                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर चालू है: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
+                            <p class="text-xs text-zinc-400 mt-2">ऐप के अंदर प्रमोशनल ऑफर: <strong class="text-white">हाँ (₹1 पैक)</strong></p>
                         </div>
                         <div class="mt-8 space-y-2">
-                            <a href="https://play.google.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M5,3H19A2,2 0 0,1 21,5V19A2,2 0 0,1 19,21H5A2,2 0 0,1 3,19V5A2,2 0 0,1 5,3M17.5,12L8,6.5V17.5L17.5,12Z" /></svg>
-                                एंड्रॉइड इंस्टॉलर
+                            <a href="https://play.google.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                एंड्रॉइड डाउनलोड (Google Play)
                             </a>
-                            <a href="https://apps.apple.com" target="_blank" class="flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
-                                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71,19.5C17.88,20.74 17,21.95 15.66,21.97C14.32,22 13.89,21.18 12.37,21.18C10.84,21.18 10.37,21.95 9.1,22C7.79,22.05 6.8,20.68 5.96,19.47C4.25,17 2.94,12.45 4.7,9.39C5.57,7.87 7.13,6.91 8.82,6.88C10.1,6.86 11.32,7.75 12.11,7.75C12.89,7.75 14.37,6.68 15.92,6.84C16.57,6.87 18.39,7.1 19.56,8.82C19.47,8.88 17.39,10.1 17.41,12.63C17.44,15.65 20.06,16.66 20.1,16.67C20.08,16.74 19.67,18.11 18.71,19.5M15.97,4.17C16.63,3.37 17.07,2.28 16.95,1C16,1.04 14.9,1.6 14.24,2.38C13.68,3.04 13.19,4.14 13.34,5.39C14.39,5.47 15.4,4.88 15.97,4.17Z" /></svg>
-                                आईफोन / iOS इंस्टॉलर
+                            <a href="https://apps.apple.com" target="_blank" class="block w-full bg-white/10 hover:bg-white/20 border border-white/20 py-2.5 rounded-lg text-xs font-bold transition-all">
+                                आईफोन डाउनलोड (iOS App Store)
                             </a>
                         </div>
                     </div>
@@ -520,19 +411,18 @@
         <div class="max-w-4xl mx-auto space-y-4">
             <p class="font-bold text-gray-400">DRAMAVIP प्रमोशन और क्यूरेशन सर्विसेज</p>
             <p class="max-w-xl mx-auto leading-relaxed">
-                अस्वीकरण (Disclaimer): DRAMAVIP एक स्वतंत्र प्रमोशनल डायरेक्टरी है। हम कानूनी रूप से किसी भी विशिष्ट शॉर्ट-ड्रामा एप्लीकेशन के ब्रांड या ट्रेडमार्क के स्वामी नहीं हैं। ₹499 का शुल्क केवल हमारे रिसर्च, सत्यापित प्रमोशनल लिंक्स को क्यूरेट करने, डाउनलोड सेटअप असिस्टेंस और गाइड प्रदान करने का एक बार का कस्टमाइज़्ड सर्विस चार्ज है।
+                अस्वीकरण (Disclaimer): DRAMAVIP एक स्वतंत्र प्रमोशनल निर्देशिका है। ₹499 का शुल्क केवल हमारे रिसर्च, सेटअप सपोर्ट और क्युरेटेड डाउनलोड असिस्टेंस गाइड प्रदान करने का एक बार का कस्टमाइज़द्ध सर्विस चार्ज है।
             </p>
             <p>&copy; 2026 DRAMAVIP. सर्वाधिकार सुरक्षित।</p>
         </div>
     </footer>
 
-    <!-- Verification Logic scripts -->
     <script>
-        // ON LOAD: Initialize Dynamic Scannable UPI QR generator with exact payment parameters
-        window.onload = function() {
+        // Initialize Scannable UPI QR generator pointing to pyrmdc@ptaxis with exact amount parameters
+        window.addEventListener('DOMContentLoaded', function() {
             try {
                 const upiUrl = "upi://pay?pa=pyrmdc@ptaxis&pn=VIP%20Drama%20Pass&am=499&cu=INR";
-                const qr = new QRious({
+                new QRious({
                     element: document.getElementById('qr-dynamic'),
                     value: upiUrl,
                     size: 256,
@@ -540,11 +430,11 @@
                     foreground: '#000000',
                     level: 'H'
                 });
-                console.log("UPI QR generated successfully inside the main viewport.");
+                console.log("UPI Dynamic QR initialized successfully.");
             } catch (e) {
                 console.error("Error creating dynamic QR:", e);
             }
-        };
+        });
 
         // Copy to clipboard function utilizing standard fallback support
         function copyUpiId() {
@@ -582,42 +472,72 @@
             }
         }
 
-        // Live Mock payment checker
-        function verifyPayment() {
-            const refInput = document.getElementById("ref-number").value.trim();
-            const loader = document.getElementById("verification-loader");
-            const successMsg = document.getElementById("verification-success");
-            const overlayShield = document.getElementById("overlay-shield");
-            const appsList = document.getElementById("unlocked-apps-list");
+        // Interactive function to display selected filename on selection
+        function displayFileName(inputElement) {
+            const selectedFileNameSpan = document.getElementById("selected-file-name");
+            const uploadLabelText = document.getElementById("upload-label-text");
+            
+            if (inputElement.files && inputElement.files.length > 0) {
+                const fileName = inputElement.files[0].name;
+                selectedFileNameSpan.textContent = "✓ " + fileName;
+                selectedFileNameSpan.classList.remove("hidden");
+                uploadLabelText.textContent = "बदलें (Change Screenshot)";
+            } else {
+                selectedFileNameSpan.classList.add("hidden");
+                uploadLabelText.textContent = "पेमेंट रसीद (Screenshot) चुनें";
+            }
+        }
 
-            // Safe validation checks using our new Custom Alert Modal
-            if (refInput.length < 8) {
-                showCustomAlert("कृपया एक वैध 12-अंकों का ट्रांजैक्शन संदर्भ आईडी (Reference ID / UTR ID) दर्ज करें।");
+        // Starts the simulated screenshot scan and unlocks directory
+        function startScreenshotVerification() {
+            const fileInput = document.getElementById("screenshot-file");
+            const loaderContainer = document.getElementById("scanning-loader");
+            const scanBar = document.getElementById("scan-bar");
+            const scanPercentage = document.getElementById("scan-percentage");
+            
+            // Check if user has uploaded a file
+            if (!fileInput.files || fileInput.files.length === 0) {
+                showCustomAlert("कृपया आगे बढ़ने के लिए अपने ₹499 भुगतान स्क्रीनशॉट अपलोड करें।");
                 return;
             }
 
-            // Trigger loader animation
-            loader.classList.remove("hidden");
-            successMsg.classList.add("hidden");
+            // Show the simulated scanner UI elements
+            loaderContainer.classList.remove("hidden");
+            scanBar.style.width = "0%";
+            scanPercentage.textContent = "0%";
 
-            setTimeout(() => {
-                // Hide loader
-                loader.classList.add("hidden");
-                // Reveal payment verified block
-                successMsg.classList.remove("hidden");
-                
-                // Animate overlay dismissal out
-                overlayShield.style.opacity = '0';
-                setTimeout(() => {
-                    overlayShield.classList.add("hidden");
-                    // Restore fully clickable elements
-                    appsList.classList.remove("opacity-40", "select-none", "pointer-events-none");
+            let currentProgress = 0;
+            const progressInterval = setInterval(() => {
+                currentProgress += Math.floor(Math.random() * 15) + 5;
+                if (currentProgress >= 100) {
+                    currentProgress = 100;
+                    clearInterval(progressInterval);
                     
-                    // Smooth scroll to download links
-                    document.getElementById("download-hub").scrollIntoView({ behavior: 'smooth' });
-                }, 300);
+                    // Trigger dynamic system unlock upon reaching 100%
+                    setTimeout(() => {
+                        executeUnlock();
+                    }, 400);
+                }
+                scanBar.style.width = currentProgress + "%";
+                scanPercentage.textContent = currentProgress + "%";
+            }, 250);
+        }
 
-            }, 2000); // 2 second mock verification latency for realistic gateway feel
+        // Complete the unlock process and scroll automatically
+        function executeUnlock() {
+            const overlayShield = document.getElementById("overlay-shield");
+            const appsList = document.getElementById("unlocked-apps-list");
+
+            // Remove visual locks
+            overlayShield.style.opacity = '0';
+            setTimeout(() => {
+                overlayShield.classList.add("hidden");
+                // Restore fully clickable download grid
+                appsList.classList.remove("opacity-40", "select-none", "pointer-events-none");
+                
+                // Scroll down to the VIP directory
+                document.getElementById("download-hub").scrollIntoView({ behavior: 'smooth' });
+            }, 300);
         }
     </script>
 </body>
