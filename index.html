@@ -229,65 +229,23 @@
         <div class="text-center mb-12">
             <span class="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-400/10 px-3 py-1.5 rounded-full border border-amber-400/20">सुरक्षित भुगतान</span>
             <h2 class="serif-title text-3xl md:text-5xl font-bold mt-4 leading-tight">अपना VIP पास अनलॉक करें</h2>
-            <p class="text-zinc-400 text-sm mt-3 max-w-md mx-auto">नीचे दिए गए बटन पर क्लिक करें। सफल भुगतान के बाद, कृपया अपनी रसीद अपलोड करें।</p>
+            <p class="text-zinc-400 text-sm mt-3 max-w-md mx-auto">नीचे दिए गए बटन पर क्लिक करें। भुगतान सफल होते ही आपको इंस्टामोजो द्वारा पुष्टि मिल जाएगी।</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
-            <div class="md:col-span-6 glass-card rounded-3xl p-6 md:p-8 border border-amber-500/20 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
-                        १. भुगतान पूरा करें
-                    </h3>
-                    <div class="p-8 bg-zinc-900 rounded-2xl mb-6 text-center border border-zinc-800 flex justify-center">
-                        <a href="https://www.instamojo.com/@pyramidcircleinc/lcdc4fb5e1a044acc92c027d3b3a03e74/" rel="im-checkout" data-text="वन-टाइम क्युरेशन फीस: ₹499" data-css-style="color:#7df9ff; background:#9966cc; width:300px; border-radius:30px; font-size:18px; font-weight:bold;" data-layout="vertical"></a>
-                        <script src="https://js.instamojo.com/v1/button.js"></script>
-                    </div>
-                    <p class="text-[10px] text-zinc-500 mt-4 flex items-center justify-center gap-1">
-                        <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"></path></svg>
-                        Secure 256-bit SSL Encrypted
-                    </p>
+        <div class="flex justify-center items-center">
+            <div class="glass-card rounded-3xl p-8 md:p-12 border border-amber-500/20 w-full max-w-lg text-center">
+                <h3 class="text-xl font-bold text-white mb-8 flex items-center justify-center gap-2">
+                    <span class="w-2.5 h-2.5 bg-amber-500 rounded-full"></span>
+                    भुगतान पूरा करें
+                </h3>
+                <div class="p-8 bg-zinc-900 rounded-2xl border border-zinc-800 flex justify-center">
+                    <a href="https://www.instamojo.com/@pyramidcircleinc/lcdc4fb5e1a044acc92c027d3b3a03e74/" rel="im-checkout" data-text="वन-टाइम क्युरेशन फीस: ₹499" data-css-style="color:#ffffff; background:#9966cc; width:350px; border-radius:30px; font-size:20px; font-weight:bold; padding:20px 0;" data-layout="vertical"></a>
+                    <script src="https://js.instamojo.com/v1/button.js"></script>
                 </div>
-            </div>
-
-            <div class="md:col-span-6 glass-card rounded-3xl p-6 md:p-8 border border-zinc-800 flex flex-col justify-between">
-                <div>
-                    <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                        <span class="w-2.5 h-2.5 bg-red-500 rounded-full"></span>
-                        २. भुगतान रसीद अपलोड करें
-                    </h3>
-                    <p class="text-sm text-zinc-400 mb-6 leading-relaxed">
-                        भुगतान के बाद, ट्रांजेक्शन आईडी या रसीद का स्क्रीनशॉट यहाँ अपलोड करें। हमारा सिस्टम तुरंत आपके डाउनलोड लिंक्स को अनलॉक कर देगा।
-                    </p>
-
-                    <div class="mb-6">
-                        <input type="file" id="screenshot-file" accept="image/*" class="hidden" onchange="displayFileName(this)" />
-                        <button onclick="document.getElementById('screenshot-file').click()" class="w-full py-4 px-4 bg-zinc-900 hover:bg-zinc-800 border border-dashed border-zinc-700 hover:border-amber-500/50 rounded-2xl flex flex-col items-center justify-center gap-2 text-center transition-all cursor-pointer">
-                            <svg class="w-8 h-8 text-zinc-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                            </svg>
-                            <span id="upload-label-text" class="text-sm font-semibold text-gray-300">पेमेंट रसीद (Screenshot) चुनें</span>
-                            <span id="selected-file-name" class="text-xs text-emerald-400 font-mono hidden truncate max-w-xs">✓ filename.jpg selected</span>
-                        </button>
-                    </div>
-
-                    <div id="scanning-loader" class="hidden p-4 bg-zinc-900 border border-zinc-800 rounded-2xl mb-6">
-                        <div class="flex items-center justify-between text-xs text-amber-400 font-semibold mb-2">
-                            <span class="flex items-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-amber-500 animate-ping"></span>
-                                रसीद वेरिफाई हो रही है...
-                            </span>
-                            <span id="scan-percentage">0%</span>
-                        </div>
-                        <div class="w-full bg-zinc-950 rounded-full h-2 overflow-hidden">
-                            <div id="scan-bar" class="bg-gradient-to-r from-red-600 via-pink-600 to-amber-500 h-2 w-0 transition-all duration-300"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <button onclick="startScreenshotVerification()" class="w-full py-5 rounded-2xl bg-gradient-to-r from-red-600 via-pink-600 to-amber-500 hover:opacity-95 font-black text-lg text-white shadow-xl shadow-red-600/30 transition-all tracking-wider uppercase">
-                    डाउनलोड लिंक अनलॉक करें
-                </button>
+                <p class="text-[10px] text-zinc-500 mt-6 flex items-center justify-center gap-1">
+                    <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"></path></svg>
+                    Secure 256-bit SSL Encrypted
+                </p>
             </div>
         </div>
     </section>
